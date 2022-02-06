@@ -1,30 +1,35 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+<div>
+	<div class="post" v-for="post in posts">
+		{{ post.title }}
+		{{ post.body }}
+	</div>
+</div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+	data() {
+		return {
+			posts: [
+				{ id: "1", title: "Js", body: "Description post" },
+				{ id: "2", title: "Html", body: "Description post" },
+				{ id: "3", title: "Css", body: "Description post" }
+			],
+		}
+	},
+	methods: {},
+};
+</script>
+<style lang="css">
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.post {
+	padding: 15px;
+	margin-bottom: 10px;
+	border: 2px solid teal;
 }
 </style>
