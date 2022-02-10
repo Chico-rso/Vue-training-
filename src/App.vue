@@ -50,7 +50,7 @@ export default {
 		},
 		removePost()
 		{
-			this.posts.delete(this.id);
+			this.posts.pop(this.newPost);
 		}
   },
 };
