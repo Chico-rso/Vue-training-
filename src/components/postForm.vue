@@ -9,26 +9,40 @@
         placeholder="Название"
       />
       <input
-        v-model="post.title"
+        v-model="post.body"
         class="input"
         type="text"
         placeholder="Описание"
       />
-      <button>Создать</button>
-      <button>Удалить</button>
+      <my-button @click="createPost">Создать</my-button>
     </form>
   </div>
 </template>
 
 <script>
+import MyButton from "./UI/myButton.vue";
 export default {
+  components:{MyButton},
   data() {
     return {
       post: {
         title: "",
-        body: ""
-      }
-    }
+        body: "",
+      },
+    };
+  },
+  methods: {
+    createPost() {
+      this.post.id = Date.now();
+      this.$emit("create", this.post);
+      this.post = {
+        title: "",
+        body: "",
+      };
+    },
+    removePost() {
+      this.$emit("remove", this.post);
+    },
   },
 };
 </script>
