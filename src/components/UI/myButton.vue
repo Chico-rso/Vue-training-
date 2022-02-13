@@ -1,15 +1,17 @@
 <template>
-  <button>
+  <button class="btn">
     <slot></slot>
   </button>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'my-button'
+};
 </script>
 
 <style lang="css" scoped>
-button {
+.btn{
   display: inline-block;
   align-self: start;
   margin-right: 10px;
