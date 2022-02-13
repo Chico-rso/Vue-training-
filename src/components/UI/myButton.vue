@@ -14,7 +14,6 @@ export default {
 .btn{
   display: inline-block;
   align-self: start;
-  margin-right: 10px;
   padding: 10px;
   line-height: 10px;
   background-color: aquamarine;

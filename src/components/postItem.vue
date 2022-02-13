@@ -1,6 +1,6 @@
 <template>
   <div class="post">
-    <div>
+    <div class="post__item">
       <div><strong>Название:</strong> {{ post.title }}</div>
       <div><strong>Описание:</strong> {{ post.body }}</div>
     </div>
@@ -33,5 +33,12 @@ export default {
   padding: 15px;
   margin-bottom: 10px;
   border: 2px solid teal;
+}
+.post__item{flex: 4;}
+.post__btns{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
 }
 </style>
