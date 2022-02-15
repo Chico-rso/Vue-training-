@@ -9,7 +9,7 @@
       <post-form @create="createPost" />
     </my-dialog>
     <post-list
-      :posts="posts"
+      :posts="sortedPosts"
       @remove="removePost"
       v-if="!isPostsLoading"
       @changePost="changePosts"
@@ -69,6 +69,20 @@ export default {
   mounted() {
     this.fetchPost();
   },
+  computed: {
+    sortedPosts(){
+      return [...this.posts].sort((post1, post2) => {
+        return post1[this.selectedSort]?.localeCompare(post2[this.selectedSort])
+      })
+    }
+  },
+  // watch: {
+  //   selectedSort(newValue) {
+  //     this.posts.sort((post1, post2) => {
+  //       return post1[newValue]?.localeCompare(post2[newValue])
+  //     })
+  //   }
+  // }
 };
 </script>
 <style lang="css" scoped>
